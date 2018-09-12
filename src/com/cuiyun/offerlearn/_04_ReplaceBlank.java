@@ -7,7 +7,6 @@ package com.cuiyun.offerlearn;
 public class _04_ReplaceBlank {
 
     public static void main(String[] args) {
-
         StringBuilder str = new StringBuilder("We Are Happy ");
         System.out.println(replaceBlank(str));
     }
