@@ -8,9 +8,9 @@ import java.util.Stack;
 public class _05_PrintListReverse {
 
     public static void main(String[] args) {
-        ListNode<String> node3 = new ListNode<String>("3", null);
-        ListNode<String> node2 = new ListNode<String>("2", node3);
-        ListNode<String> head = new ListNode<String>("1", node2);
+        ListNode<String> node3 = new ListNode<>("3", null);
+        ListNode<String> node2 = new ListNode<>("2", node3);
+        ListNode<String> head = new ListNode<>("1", node2);
         printReverse(head); //递归方式打印
         //printReverse1(head); //利用栈结构反转打印
     }
@@ -19,7 +19,7 @@ public class _05_PrintListReverse {
      * 通过栈的方式打印
      * @param node
      */
-    public static void printReverse1(ListNode<String> node) {
+    private static void printReverse1(ListNode<String> node) {
         if (node == null)
             return;
         Stack<String> stack = new Stack<String>();
@@ -38,7 +38,7 @@ public class _05_PrintListReverse {
      * 递归方式打印
      * @param node
      */
-    public static void printReverse(ListNode<String> node) {
+    private static void printReverse(ListNode<String> node) {
         if (node != null) {
             if (node.next() != null) {
                 printReverse(node.next());
@@ -51,16 +51,16 @@ public class _05_PrintListReverse {
         private T val;
         private ListNode<T> next;
 
-        public ListNode(T val, ListNode<T> next) {
+        ListNode(T val, ListNode<T> next) {
             this.val = val;
             this.next = next;
         }
 
-        public ListNode<T> next() {
+        ListNode<T> next() {
             return next;
         }
 
-        public T getVal() {
+        T getVal() {
             return val;
         }
     }
