@@ -25,6 +25,7 @@ public class _17_MergeSortedLists {
         node5.next = node6;
         node6.val = 6;
 
+
         ListNode<Integer> megerList = merge(node1, node4);
         print(megerList);
     }
@@ -45,28 +46,16 @@ public class _17_MergeSortedLists {
         if (node2 == null)
             return node1;
 
-        ListNode<Integer> root = new ListNode<>();
-        ListNode pointer = root;
-        while (node1 != null && node2 != null) {
-            if (node1.val < node2.val) {
-                pointer.next = node1;
-                node1 = node1.next;
-            }
-            else {
-                pointer.next = node2;
-                node2 = node2.next;
-            }
-            pointer = pointer.next;
+        ListNode<Integer> megerNode = null;
+        if (node1.val < node2.val) {
+            megerNode = node1;
+            megerNode.next = merge(node1.next, node2);
         }
-
-        if (node1 != null) {
-            pointer.next = node1;
+        else {
+            megerNode = node2;
+            megerNode.next = merge(node2.next,node1);
         }
-        if (node2 != null) {
-            pointer.next = node2;
-        }
-
-        return root.next;
+        return megerNode;
     }
 
     private static class ListNode<T> {
